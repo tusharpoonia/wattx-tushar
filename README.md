@@ -1,12 +1,15 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 This is my first experience in developing a project using Next.js. I would have made a simple React app with [`create-react-app`](https://github.com/facebook/create-react-app) instead but there was a note in the documentation of the API that said:
+
 "Making HTTP requests on the client side with Javascript is currently prohibited through CORS configuration. This is to protect your API Key which should not be visible to users of your application so your API Key is not stolen. Secure your API Key by routing calls through your own backend service."
+
 So in order to save the efforts of creating an Express.js server with the React App, I went ahead with a Next.js App.
 
 ## Getting Started
 
 I have built the project with the LTS version of Node.js as of now, i.e., 14.18.1
+
 I assume it would work well with other Node.js versions as well, however please use the same version to avoid any issues as the project isn't tested on other versions of Node.js.
 
 Install the dependencies and run the project.
