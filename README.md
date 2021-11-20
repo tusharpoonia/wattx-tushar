@@ -1,34 +1,41 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+This is my first experience in developing a project using Next.js. I would have made a simple React app with [`create-react-app`](https://github.com/facebook/create-react-app) instead but there was a note in the documentation of the API that said:
+"Making HTTP requests on the client side with Javascript is currently prohibited through CORS configuration. This is to protect your API Key which should not be visible to users of your application so your API Key is not stolen. Secure your API Key by routing calls through your own backend service."
+So in order to save the efforts of creating an Express.js server with the React App, I went ahead with a Next.js App.
+
 ## Getting Started
 
-First, run the development server:
+I have built the project with the LTS version of Node.js as of now, i.e., 14.18.1
+I assume it would work well with other Node.js versions as well, however please use the same version to avoid any issues as the project isn't tested on other versions of Node.js.
+
+Install the dependencies and run the project.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Problem Statement
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+The project is a solution for the [WATTx Front-End Engineer Challenge: Top Coins (React)](https://github.com/WATTx/code-challenges/blob/master/frontend-engineer-challenge-top-coins-react.md)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Project Structure
 
-## Learn More
+Besides the code structure provided in the bootstrap Next.js app, I have added four more folders, namely,
+1. components: To add atomic React components
+2. config: To keep configurational values. Only the configuration file for 'server' contains some values but configuration files for 'client' and 'common' are also added for completeness
+3. context: To add a wrapper to use React's useContext for state management
+4. utils: To add utility functions required for the client and server-side of the project. It also contains custom hooks.
 
-To learn more about Next.js, take a look at the following resources:
+## Solution
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Since the /liquidity page required a bubble chart, I have used [react-google-charts](https://www.npmjs.com/package/react-google-charts). Here is the usage for Bubble Chart, https://react-google-charts.com/bubble-chart.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The solution worked fine for the 10 and 50 results. However, the page seemed sluggish when the option of All (5000) was selected because of so many DOM elements. To deal with this issue, I added pagination on the home page. The API is still fetching all the 5000 results at once but the list is growing by a factor of 50 as the user scrolls down. It improved the performance of the home page (Market overview) but the Liquidity analysis page couldn't be optimised for the chart must contain all the values at once. 
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The solution is cuurently deployed on [Vercel](https://wattx-tushar.vercel.app/).
