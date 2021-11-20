@@ -35,10 +35,10 @@ Besides the code structure provided in the bootstrap Next.js app, I have added f
 
 ## Solution
 
-Since the /liquidity page required a bubble chart, I have used [react-google-charts](https://www.npmjs.com/package/react-google-charts). Here is the usage for Bubble Chart, https://react-google-charts.com/bubble-chart.
+Since the /liquidity page required a [bubble chart](https://react-google-charts.com/bubble-chart), I have used [react-google-charts](https://www.npmjs.com/package/react-google-charts) library for the purpose.
 
 The solution worked fine for the 10 and 50 results. However, the page seemed sluggish when the option of All (5000) was selected because of so many DOM elements. To deal with this issue, I added pagination on the home page. The API is still fetching all the 5000 results at once but the list is growing by a factor of 50 as the user scrolls down. It improved the performance of the home page (Market overview) but the Liquidity analysis page couldn't be optimised for the chart must contain all the values at once. 
 
 ## Deployment
 
-The solution is cuurently deployed on [Vercel](https://wattx-tushar.vercel.app/).
+The solution is currently deployed on [Vercel](https://wattx-tushar.vercel.app/).
