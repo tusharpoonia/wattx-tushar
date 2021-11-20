@@ -2,11 +2,11 @@ import React from 'react';
 import styles from '../styles/Home.module.css';
 import { MetaHead, Loader } from '../components';
 import { Chart } from "react-google-charts";
-import { useAppContext } from '../context/AppWrapper';
+import { getAppContext } from '../context/AppWrapper';
 
 export default function liquidity() {
 
-    const { response, loading } = useAppContext();
+    const { response, loading } = getAppContext();
 
     return (
         <div className={styles.container}>

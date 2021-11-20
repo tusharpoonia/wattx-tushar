@@ -1,6 +1,6 @@
 import styles from '../styles/Home.module.css';
 import { MetaHead, Loader } from '../components';
-import { useAppContext } from '../context/AppWrapper';
+import { getAppContext } from '../context/AppWrapper';
 import Table from 'react-bootstrap/Table';
 import Placeholder from 'react-bootstrap/Placeholder';
 import usePager from '../utils/client/hooks/usePager';
@@ -8,7 +8,7 @@ import usePager from '../utils/client/hooks/usePager';
 const PAGE_LIMIT = 50;
 
 export default function Home() {
-  const { response, loading, totalItems } = useAppContext();
+  const { response, loading, totalItems } = getAppContext();
   const { continuePagination, pagify, loaderRef } = usePager(totalItems, PAGE_LIMIT);
 
   return (
